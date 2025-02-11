@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import BookDetails from './componets/BookDetails/BookDetails';
 import Dashboard from './componets/Dashboard/Dashboard';
 import ErrorPage from './componets/ErrorPage/ErrorPage';
 import Home from './componets/Home/Home';
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/books/:bookId",
+        element: <BookDetails />,
       },
       {
         path: "dashboard",
