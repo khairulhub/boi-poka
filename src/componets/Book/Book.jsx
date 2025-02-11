@@ -13,8 +13,8 @@ const Book = ({ book }) => {
         </figure>
         <div className="card-body">
           <div className="flex  gap-3">
-            {tags.map((tag) => (
-              <button className="btn btn-sm text-[#23BE0A]">{tag}</button>
+            {tags.map((tag, index) => (
+              <button key={index} className="btn btn-sm text-[#23BE0A]">{tag}</button>
             ))}
           </div>
           <h2 className="card-title pt-2">{bookName}</h2>
