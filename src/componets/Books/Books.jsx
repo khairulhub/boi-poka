@@ -1,0 +1,31 @@
+import React, { useEffect, useState } from 'react';
+
+import Book from '../Book/Book';
+
+const Books = () => {
+    const [books, setBooks] = useState([]);
+
+    const api = './booksData.json';
+// useEffect it take a callback function and an array of dependencies array for load each book from the api in one time .
+
+
+    useEffect(()=>{
+        fetch(api)
+        .then(res => res.json())
+        .then(data => setBooks(data))
+    } ,[])
+
+    return (
+        <div className='mt-20'>
+            <h1 className='text-5xl font-bold text-center'>Books</h1>
+            <p>{books.length}</p>
+            <div>
+            {
+                books.map(book => <Book key={book.bookId} book={book} />)
+            }
+            </div>
+        </div>
+    );
+};
+
+export default Books;
