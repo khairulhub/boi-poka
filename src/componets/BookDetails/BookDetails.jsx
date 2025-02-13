@@ -2,6 +2,8 @@ import React from "react";
 
 import { useLoaderData, useParams } from "react-router-dom";
 
+import { addBookToReadList } from "../../Utility/AddToDB";
+
 const BookDetails = () => {
   // const params = useParams();
   // useParams object akare full properties id ta diye day.
@@ -31,6 +33,12 @@ const BookDetails = () => {
     publisher,
   } = book;
 
+  // create function for handle mark book as read 
+  const handleMarkAsRead = (id) => {
+    console.log("Mark as read");
+
+    addBookToReadList(id);
+  };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -55,7 +63,7 @@ const BookDetails = () => {
           <p className="pt-2"><b>Year of Publishing:</b> {yearOfPublishing}</p>
           <p className="pt-2"><b>Rating:</b> {rating}</p>
           <div className="flex gap-2 pt-2">
-          <button className="btn btn-outline btn-light">Read</button>
+          <button className="btn btn-outline btn-light" onClick={()=>handleMarkAsRead(bookId)}>Read</button>
           <button className="btn btn-info">Wishlist</button>
           </div>
           
